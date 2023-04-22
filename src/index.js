@@ -1,9 +1,8 @@
 import debounce from 'lodash.debounce';
-import './css/styles.css';
 import { fetchCountries } from './fetchCountries';
 import Notiflix from 'notiflix';
 const BASE_URL = 'https://restcountries.com/v3.1/';
-
+import './css/styles.css';
     
 
 const DEBOUNCE_DELAY = 300;
@@ -23,11 +22,11 @@ function onInputClick(e) {
         countryList.innerHTML = '';
         return;
     }
- //const name = inputForm.elements.object.value;
+
  //   let { name, flags } = e.target.elements;
  fetchCountries(textValue) 
-     .then((data) => {
-         //console.log(data);
+     .then(data => {
+   //console.log(data);
          if (data.length > 10) {
              Notiflix.Notify.info(
                  "Too many matches found. Please enter a more specific name"
@@ -55,27 +54,15 @@ function createListData(data) {
   }
 };
 
-//https://restcountries.com/v3.1/all?fields=name,flags
-/*function getCountry() {
-    const fields = new URLSearchParams({
-        name,
-        flags
-    });
-   
-   return fetch(`${BASE_URL}${END_POINT}?${fields}`).then(resp => {
-        if (!resp.ok) {
-            throw new Error(resp.statusText)
-        } return resp.json()
-    })
-}*/
 function createListCountry(data) {
-    return data.map(({ flags, name, official, capital, population, languages }) =>
+    return data.map(({ flags,name, official, capital, population, languages }) =>
         `<div class='box-list'>
         <img src="${flags.svg}" alt="${name.official}" width='120'>
 <h2>${name.official}</h2>
-<p>${capital}</p>
-<p>${Object.value(languages)}</p>
-<p>${population}</p></div>`);
+<p><b>Capital:</b> ${capital}</p>
+<p><b>Population:</b> ${population}</p>
+<p><b>Languages:</b> ${Object.values(languages)}</p></div>`)
+.join('');
 };
 
 
@@ -88,9 +75,6 @@ function createMarkup(data) {
         .join('');
 };
 
-    
-
-
 /*fetch(`https://restcountries.com/v3.1/all?fields=name`).then(resp => {
     //console.log(resp.json());
     return resp.json();
@@ -99,11 +83,4 @@ function createMarkup(data) {
   
 }).catch(err => {
     console.log(err);
-});
-<li>
-<img src="${Object.value(svg)}" alt="${official}">
-<h2 class='country-title'>${official}</h2>
-<p class='text-list'>${capital}</p>
-<p class='text-list'>${languages}</p>
-<p class='text-list'>${population}</p>
-</li>*/
+});*/

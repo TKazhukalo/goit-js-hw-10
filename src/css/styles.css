@@ -19,7 +19,7 @@ body {
   margin-bottom: 16px;
 }
 .input-style{
-  display: block;
+  display: flex;
   text-align: center;
   background-color: #067a40;
     color: #e5f7ec;
@@ -30,10 +30,15 @@ body {
 }
 .country-box {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content:center;
   margin-top: 50px;
+
 }
 .box-list{
   display: block;
   align-items: center;
+  width: 200px;
 }

@@ -2,7 +2,7 @@
 
 export const fetchCountries=name=> {
      const BASE_URL = 'https://restcountries.com/v3.1/name/';
-    const itemFields = 'fields=name,flags,languages,population,capital';
+    const itemFields = 'fields=name,flags,languages,population,capital,official';
 
    
     return fetch(`${BASE_URL}${name}?${itemFields}`)
@@ -13,4 +13,3 @@ export const fetchCountries=name=> {
         });
        
 }
-export default { fetchCountries };
